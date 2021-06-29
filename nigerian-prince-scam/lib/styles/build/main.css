@@ -1,0 +1,714 @@
+body {
+  background-color: black;
+  background-image: url(../../../assets/email-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  margin: 0;
+  position: relative;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 16px;
+}
+
+*::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: min-content 1fr 50px;
+  grid-template-rows: min-content 1fr;
+  z-index: 5000;
+}
+main > section.logo {
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  padding-right: 30px;
+}
+main > section.logo div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+main > section.logo div:first-of-type {
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > section.logo div:first-of-type:hover {
+  background-color: #ffffff2a;
+}
+main > section.logo div:first-of-type svg {
+  width: 24px;
+  height: 24px;
+}
+main > section.logo div:first-of-type svg path {
+  color: white;
+}
+main > section.logo div img {
+  cursor: pointer;
+}
+main > section.head {
+  grid-column: 2/4;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 40px) 50px;
+  align-items: center;
+  padding: 8px;
+  padding-left: 0;
+  gap: 5px;
+  border-bottom: 1px solid #ffffff2a;
+}
+main > section.head > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+main > section.head > div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+main > section.head > div:first-of-type .search {
+  background-color: #ffffff48;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 8px;
+  border-radius: 5px;
+  gap: 10px;
+  min-width: max-content;
+  width: 500px;
+  max-width: 50vw;
+}
+main > section.head > div:first-of-type .search div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > section.head > div:first-of-type .search div:hover {
+  background-color: #ffffff2a;
+}
+main > section.head > div:first-of-type .search span {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 16px;
+  cursor: text;
+  flex: 1;
+}
+main > section.head > div:not(:first-of-type) div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > section.head > div:not(:first-of-type) div:hover {
+  background-color: #ffffff2a;
+}
+main > section.head > div:not(:first-of-type) div svg {
+  width: 24px;
+  height: 24px;
+}
+main > section.head > div:last-of-type img {
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+main > section.nav {
+  grid-column: 1/2;
+  font-family: "Open Sans", sans-serif;
+  overflow-y: auto;
+  border-right: 1px solid #ffffff2a;
+}
+main > section.nav > section {
+  border-top: 1px solid #ffffff2a;
+}
+main > section.nav > section.compose {
+  padding: 20px;
+}
+main > section.nav > section.compose div {
+  background-color: white;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 0.875rem;
+  gap: 10px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+main > section.nav > section.directories {
+  max-height: 300px;
+  overflow-y: auto;
+  width: 30vw;
+  min-width: 175px;
+  max-width: 225px;
+  padding-right: 5px;
+}
+main > section.nav > section.directories .directory {
+  display: grid;
+  padding: 6px 20px;
+  grid-template-columns: 20px 1fr auto;
+  gap: 15px;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+main > section.nav > section.directories .directory:hover {
+  background-color: #ffffff2a;
+}
+main > section.nav > section.directories .directory img {
+  opacity: 0.7;
+}
+main > section.nav > section.directories .directory span:first-of-type {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+main > section.nav > section.directories .directory span:last-of-type {
+  font-size: 0.75rem;
+}
+main > section.nav > section.meet {
+  overflow-y: auto;
+  color: white;
+  padding-bottom: 10px;
+}
+main > section.nav > section.meet h1 {
+  padding: 0px 20px;
+  font-size: 0.875rem;
+}
+main > section.nav > section.meet .container {
+  padding-right: 10px;
+}
+main > section.nav > section.meet .container .option {
+  display: grid;
+  padding: 6px 20px;
+  grid-template-columns: 20px 1fr;
+  gap: 15px;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+main > section.nav > section.meet .container .option:hover {
+  background-color: #ffffff2a;
+}
+main > section.nav > section.meet .container .option img {
+  opacity: 0.7;
+}
+main > section.nav > section.meet .container .option span {
+  font-size: 0.875rem;
+}
+main > section.nav > section.home {
+  padding: 20px 0;
+  padding-left: 20px;
+}
+main > section.nav > section.home a {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+main > section.nav > section.home a:hover {
+  background-color: #d1d1d1;
+}
+main > section.email {
+  grid-column: 2/3;
+  background-color: #ffffff;
+}
+main > section.email .options {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url(../../../assets/email-background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+main > section.email .options .option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > section.email .options .option:hover {
+  background-color: #ffffff2a;
+}
+main > section.email .options .option img {
+  width: 22px;
+  height: 22px;
+  padding: 10px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+main > section.email .options .set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+main > section.email .options .set:not(:last-of-type) {
+  border-right: 1px solid #ffffff2a;
+}
+main > section.email .content > img {
+  display: none;
+}
+main > section.email .content > section.head {
+  display: grid;
+  grid-template-columns: 1fr repeat(2, max-content);
+  font-family: "Open Sans", sans-serif;
+  align-items: center;
+  padding: 15px 10px;
+  padding-left: 0px;
+  gap: 5px;
+  margin-left: 72px;
+}
+main > section.email .content > section.head > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main > section.email .content > section.head > div span {
+  font-size: 1.375rem;
+}
+main > section.email .content > section.head > div .option {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+}
+main > section.email .content > section.head > div .option:hover {
+  background-color: #aaa9a92a;
+}
+main > section.email .content > section.head > div .option img {
+  width: 20px;
+  height: 20px;
+  filter: invert(40%);
+}
+main > section.email .content > section.body {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  padding: 10px;
+  padding-left: 0px;
+  animation: shine 0.8s ease-in-out 1;
+}
+@keyframes shine {
+  from {
+    background-color: #ffffc8;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+main > section.email .content > section.body > div:first-of-type {
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 16px;
+}
+main > section.email .content > section.body > div:first-of-type img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+main > section.email .content > section.body > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+}
+main > section.email .content > section.body > div:last-of-type > div.start {
+  display: grid;
+  grid-template-columns: 1fr repeat(4, max-content);
+  align-items: flex-start;
+  gap: 5px;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.address {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  gap: 5px;
+  align-items: baseline;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.address span:first-of-type {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.address span:last-of-type {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #555;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.address span:last-of-type::before {
+  content: "<";
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.address span:last-of-type::after {
+  content: ">";
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.timestamp {
+  padding: 0 10px;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.timestamp span {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #555;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.opt-box {
+  padding: 0 10px;
+}
+main > section.email .content > section.body > div:last-of-type > div.start > div.opt-box img {
+  width: 20px;
+  height: 20px;
+  filter: invert(40%);
+  cursor: pointer;
+}
+main > section.email .content > section.body > div:last-of-type > div.misc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #555;
+}
+main > section.email .content > section.body > div:last-of-type > div.story {
+  padding-top: 10px;
+  font-size: 1rem;
+}
+main > section.email .content > section.body > div:last-of-type > div.story * {
+  font-size: 1rem;
+}
+main > section.email .content > section.body:not(:first-of-type) {
+  border-bottom: 1px solid #e0e0e0;
+}
+main > section.email .content > section.body.collapsed {
+  cursor: pointer;
+}
+main > section.email .content > section.body.collapsed > div:last-of-type > div.start > div.address span:last-of-type, main > section.email .content > section.body.collapsed > div:last-of-type > div.start > div.opt-box {
+  display: none;
+}
+main > section.email .content > section.body.collapsed > div:last-of-type > div.start > div:nth-last-of-type(3) {
+  display: initial;
+}
+main > section.email .content > section.body.collapsed > div:last-of-type > div.misc {
+  display: none;
+}
+main > section.email .content > section.body.collapsed > div:last-of-type > div.story {
+  padding-top: 0px;
+  font-size: 0px !important;
+  color: #555;
+}
+main > section.email .content > section.body.collapsed > div:last-of-type > div.story::first-line {
+  font-size: 0.95rem !important;
+}
+main > section.email .content > section.ui {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  padding: 10px;
+  padding-left: 0px;
+  padding-bottom: 60px;
+}
+main > section.email .content > section.ui > div:first-of-type {
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 16px;
+}
+main > section.email .content > section.ui > div:first-of-type img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+main > section.email .content > section.ui > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+}
+main > section.email .content > section.ui > div:last-of-type > h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+main > section.email .content > section.ui > div:last-of-type > p {
+  margin: 0;
+  font-size: 1rem;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  gap: 10px;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type > div {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: stretch;
+  box-sizing: border-box;
+  border: 1px dashed transparent;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type > div p {
+  margin: 0;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type > div p:first-of-type {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type > div p:last-of-type {
+  min-width: 400px;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-locked=true] > div {
+  background-color: rgba(85, 85, 85, 0.13);
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-locked=false] > div {
+  cursor: pointer;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-locked=false] > div:hover {
+  border: 1px dashed black;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="0"] > div:nth-of-type(1), main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="1"] > div:nth-of-type(2), main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="2"] > div:nth-of-type(3) {
+  border: 1px solid black;
+}
+main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="0"] > div:nth-of-type(1) p:first-of-type, main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="1"] > div:nth-of-type(2) p:first-of-type, main > section.email .content > section.ui > div:last-of-type > div:first-of-type[data-selected="2"] > div:nth-of-type(3) p:first-of-type {
+  background-color: rgba(165, 165, 165, 0.438);
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button {
+  font-family: "Open Sans", sans-serif;
+  outline: none;
+  border: none;
+  font-size: 1.05rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button > img {
+  filter: invert(40%);
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button:not(:disabled) {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #7c7c7c46;
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button:not(:disabled):hover {
+  background-color: #acacac33;
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button:not(:disabled):active {
+  transform: scale(1.1);
+}
+main > section.email .content > section.ui > div:last-of-type > div:last-of-type button:disabled {
+  background-color: #0000002a;
+  color: rgba(0, 0, 0, 0.473);
+}
+main > section.email .content > section.ui:not(:first-of-type, :last-of-type) {
+  border-bottom: 1px solid #e0e0e0;
+}
+main > section.email .content > section.ui.collapsed {
+  cursor: pointer;
+}
+main > section.email .content > section.ui.collapsed > div:last-of-type > div.start > div.address span:last-of-type, main > section.email .content > section.ui.collapsed > div:last-of-type > div.start > div.opt-box {
+  display: none;
+}
+main > section.email .content > section.ui.collapsed > div:last-of-type > div.start > div:nth-last-of-type(3) {
+  display: initial;
+}
+main > section.email .content > section.ui.collapsed > div:last-of-type > div.misc {
+  display: none;
+}
+main > section.email .content > section.ui.collapsed > div:last-of-type > div.story {
+  padding-top: 0px;
+  font-size: 0px !important;
+  color: #555;
+}
+main > section.email .content > section.ui.collapsed > div:last-of-type > div.story::first-line {
+  font-size: 0.95rem !important;
+}
+main > section.widgets {
+  grid-column: 3/4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  gap: 10px;
+  overflow-y: auto;
+  border-top: 1px solid #ffffff2a;
+  border-left: 1px solid #ffffff2a;
+}
+main > section.widgets div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main > section.widgets div:hover {
+  background-color: #ffffff2a;
+}
+main > section.widgets div img {
+  width: 20px;
+  height: 20px;
+}
+main > section.widgets div:last-of-type {
+  margin-top: 40px;
+}
+
+body > section.init {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.856);
+}
+body > section.init > div {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Open Sans", sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+body > section.init > div p {
+  margin: 0;
+  font-size: 1.5rem;
+}
+body > section.init > div span {
+  background-color: #e7e7e7;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border-radius: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+body > section.init > div span:hover {
+  background-color: #00000042;
+}
+body > section.init > div span:active {
+  transform: scale(1.05);
+}
+
+.modalback {
+  position: fixed;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 50;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.089);
+}
+.modalback .modalfront {
+  background-color: white;
+  margin-top: 7.5vh;
+  border-radius: 10px;
+  display: flex;
+  width: 40vw;
+  height: 50vh;
+  color: black;
+  flex-direction: column;
+  position: relative;
+  place-items: center;
+}
+.modalback .modalfront img {
+  height: 5%;
+  width: 2.5%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.4s;
+}
+.modalback .modalfront img ::selection {
+  background-color: none;
+}
+.modalback .modalfront img:hover {
+  transition: all 0.6s;
+  height: 7.5%;
+  width: 3.725%;
+}
+.modalback .modalfront h1 {
+  color: red;
+  flex: 1;
+  align-self: center;
+}
+.modalback .modalfront p {
+  color: red;
+  align-self: center;
+  flex: 6;
+}
+
+/*# sourceMappingURL=main.css.map */
