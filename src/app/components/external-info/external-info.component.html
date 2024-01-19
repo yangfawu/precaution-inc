@@ -1,0 +1,41 @@
+<section style="--img-color: {{ $avgColor | async }}">
+    <div class="backdrop" *ngIf="$item | async">
+        <div *ngFor="let i of [].constructor(20)">{{ ($item | async).name }}</div>
+    </div>
+    <div class="content special" *ngIf="$item | async">
+        <div class="nav">
+            <span>Viewing {{ ($position | async) + 1 }}/{{ $data.value.length }}</span>
+            <button mat-stroked-button matTooltip="previous" (click)="shift(-1)" [disabled]="$loading | async">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <button mat-stroked-button matTooltip="next" (click)="shift(1)" [disabled]="$loading | async">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </div>
+        <div class="profile">
+            <div class="logo" [attr.data-src]="($item | async).logo">
+                <!-- LOGO -->
+            </div>
+            <div class="content">
+                <div>
+                    <span>{{ ($item | async).name }}</span>
+                    <a *ngIf="($item | async).webLink" [matTooltip]="($item | async).webLink" [href]="($item | async).webLink" target="_blank">
+                        <span>VISIT</span>
+                        <mat-icon>open_in_new</mat-icon>
+                    </a>
+                </div>
+                <mat-chip-list selectable="false">
+                    <mat-chip *ngFor="let tag of ($item | async).tags">{{ tag }}</mat-chip>
+                    <mat-chip class="lonely">Relevant Tags TBA</mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+        <div class="info">
+            <p>{{ ($item | async).description }} <a [matTooltip]="($item | async).link" [href]="($item | async).link" target="_blank">
+                <span>Read More</span>
+                <mat-icon>open_in_new</mat-icon>
+            </a></p>
+        </div>
+    </div>
+    <div class="no-content special" *ngIf="!($item | async)">No Service / Company to showcase.</div>
+</section>

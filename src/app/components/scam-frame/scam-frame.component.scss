@@ -1,0 +1,127 @@
+@import "../../../globals.scss";
+
+:host > section.exit {
+    --hidden-color: white;
+    // #
+    position: fixed;
+    bottom: 8px;
+    right: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 4px;
+    transform: translateX(calc(100% + 8px));
+    transition: background-color 0.3s,
+                transform 0.3s;
+    & > button {
+        border: none;
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 8px;
+        background-color: #c2ff86;
+        margin: 0;
+        gap: 4px;
+        color: black;
+        font-weight: bold;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-family: 'Assistant', sans-serif;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 0.3;
+        user-select: none;
+        white-space: nowrap;
+    }
+    & > div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0px;
+        color: ywdt(light-content);
+        cursor: pointer;
+        transition: transform 0.3s;
+        user-select: none;
+        mix-blend-mode: difference;
+        transition: background-color 0.3s,
+                    color 0.3s;
+    }
+    &.hidden {
+        transform: translateX(32px);
+        background-color: var(--hidden-color);
+        & > div {
+            transform: rotate(180deg);
+            color: black;
+            background-color: rgba(255, 255, 255, 0.295);
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.116);
+            }
+        }
+    }
+}
+:host > section.start {
+    background-color: ywdt(surface);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    & > div {
+        margin: 16px;
+        max-width: 700px;
+        box-sizing: border-box;
+        padding: 16px 32px;
+        padding-bottom: 32px;
+        background-color: ywdt(light-content);
+        color: black;
+        border-radius: 6px;
+        & > p {
+            font-family: 'Assistant', sans-serif;
+            font-size: 1.1rem;
+            & > b {
+                text-transform: uppercase;
+            }
+            & > mat-checkbox {
+                font-family: 'Assistant', sans-serif;
+                font-size: 1.1rem;
+            }
+        }
+        & > div {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            & > button {
+                font-family: 'Assistant', sans-serif;
+                font-size: 1.1rem;
+                padding: 8px;
+                background-color: transparent;
+                color: black;
+                border: 2px solid black;
+                cursor: pointer;
+                transition: background-color 0.2s,
+                            color 0.2s,
+                            border-color 0.2s;
+                &:disabled {
+                    background-color: darken(ywdt(light-content), 10%);
+                    color: lighten(black, 60%);
+                    border-color: lighten(black, 60%);
+                    cursor: initial;
+                }
+            }
+        }
+    }
+    &.hidden {
+        display: none;
+    }
+}

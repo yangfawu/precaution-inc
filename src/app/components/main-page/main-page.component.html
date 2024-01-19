@@ -1,0 +1,162 @@
+<app-main-frame>
+    <app-page-anchor anchor="info">Info</app-page-anchor>
+    <app-page-anchor anchor="simulations">Products</app-page-anchor>
+    <app-page-anchor anchor="people">Team</app-page-anchor>
+    <!-- SPACER -->
+    <section class="main-header" [style.--offset.px]="offset$ | async">
+        <div class="content">
+            <h1>Internet Safety Starts with <span class="gradient">YOU</span>.</h1>
+            <p>Learn how to protect yourself online through hands-on experience.</p>
+        </div>
+        <div class="figure">
+            <div>
+                <div>
+                    <!-- CIRCLE -->
+                    <!-- BG IMG is laptop -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="info" class="main-point">
+        <div class="content">
+            <h1><span class="gradient">Many</span> Fall Victim</h1>
+            <p>Everyone is vulnerable to fraud - especially during the pandemic when we can get pretty desperate at times. Every year, countless people get hit with some form of scam.</p>
+            <div>
+                <a matRipple href="https://www.iii.org/fact-statistic/facts-statistics-identity-theft-and-cybercrime" target="_blank">
+                    <span>see the stats</span>
+                    <mat-icon>open_in_new</mat-icon>
+                </a>
+            </div>
+        </div>
+        <div class="img">
+            <div class="mat-elevation-z5" data-img="crying" matTooltip="https://www.pinterest.com/pin/196117758751231957/">
+                <!-- IMG -->
+            </div>
+            <div>
+                <!-- BACKDROP -->
+            </div>
+        </div>
+    </section>
+    <section class="main-point flipped">
+        <div class="content">
+            <h1>Less Reading, More <span class="gradient">Doing</span></h1>
+            <p>Forget about reading through long and confusing manuals to get information that barely stays in your head. Our hands-on experience will help you retain info better and develop awareness about online fraud.</p>
+        </div>
+        <div class="img">
+            <div class="mat-elevation-z5" data-img="confused" matTooltip="https://www.pinterest.com/pin/603904631275422143/">
+                <!-- IMG -->
+            </div>
+            <div>
+                <!-- BACKDROP -->
+            </div>
+        </div>
+    </section>
+    <section class="main-spacer">
+        <div>
+            <!-- DOT -->
+        </div>
+        <div>
+            <!-- DOT -->
+        </div>
+        <div>
+            <!-- DOT -->
+        </div>
+    </section>
+    <section class="main-simulations">
+        <div id="simulations">
+            <h1>Your <span class="gradient">Toybox</span></h1>
+            <div>
+                <div class="text">
+                    <p>Build {{ selected + 1 }}/{{ simulations.length }}</p>
+                    <h1>{{ (selectedSim | async).name }}</h1>
+                    <p>{{ (selectedSim | async).info }}</p>
+                    <div>
+                        <a matRipple routerLink="/{{ (selectedSim | async).link }}">
+                            <span>Explore</span>
+                            <mat-icon>play_arrow</mat-icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="img">
+                    <div [attr.data-img]="(selectedSim | async).img">
+                        <!-- IMG -->
+                    </div>
+                    <div class="mat-elevation-z5">
+                        <button mat-mini-fab color="accent" matTooltip="previous" (click)="shift(-1)">
+                            <mat-icon>chevron_left</mat-icon>
+                        </button>
+                        <button mat-mini-fab color="accent" matTooltip="next" (click)="shift(1)">
+                            <mat-icon>chevron_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-spacer">
+        <div>
+            <!-- DOT -->
+        </div>
+        <div>
+            <!-- DOT -->
+        </div>
+        <div>
+            <!-- DOT -->
+        </div>
+    </section>
+    <section id="people" class="main-people">
+        <h1>The Team</h1>
+        <div>
+            <div class="person">
+                <div class="img">
+                    <div data-src="houchi">
+                        <!-- img -->
+                    </div>
+                </div>
+                <div class="text">
+                    <h1>Hou Chi Chan</h1>
+                    <p>Virtual Fraud Developer</p>
+                    <a href="https://www.linkedin.com/in/hou-chi-chan-4570001b3/" target="_blank">
+                        <span>LinkedIn</span>
+                        <mat-icon>open_in_new</mat-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="person">
+                <div class="img">
+                    <div data-src="jeremy">
+                        <!-- img -->
+                    </div>
+                </div>
+                <div class="text">
+                    <h1>Jeremy Li</h1>
+                    <p>Site Content Manager</p>
+                    <a href="https://www.linkedin.com/in/jiabin-jeremy-li/ " target="_blank">
+                        <span>LinkedIn</span>
+                        <mat-icon>open_in_new</mat-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="person">
+                <div class="img">
+                    <div data-src="yangfa">
+                        <!-- img -->
+                    </div>
+                </div>
+                <div class="text">
+                    <h1>Yangfa Wu</h1>
+                    <p>Angular Developer</p>
+                    <a href="https://www.linkedin.com/in/yangfa-wu/ " target="_blank">
+                        <span>LinkedIn</span>
+                        <mat-icon>open_in_new</mat-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="statement">
+            <p>We're just people trying to take what we learned and twist it into something helpful for our community.</p>
+        </div>
+    </section>
+</app-main-frame>

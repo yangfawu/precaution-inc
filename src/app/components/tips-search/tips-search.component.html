@@ -1,0 +1,74 @@
+<section>
+    <div class="decor"></div>
+    <div class="input">
+        <p>Enter in keywords related to your search to find the tips you need faster.</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Tip Filters</mat-label>
+            <mat-chip-list #chipList [formControl]="formControl">
+                <mat-chip *ngFor="let filter of filters" [selectable]="false" [removable]="true" (removed)="remove(filter.id)">
+                    {{ filter.value }}
+                    <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="New filter..." [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="BREAK_CODES" [matChipInputAddOnBlur]="true"
+                    (matChipInputTokenEnd)="addFilter($event)">
+            </mat-chip-list>
+            <mat-hint *ngIf="$busy | async">
+                <mat-icon>view_headline</mat-icon>
+                <span>Looking for tips that match filters...</span>
+            </mat-hint>
+            <mat-hint *ngIf="!($busy | async)">
+                <mat-icon>check_circle</mat-icon>
+                <span *ngIf="filters.length">Found {{ ($results | async).length | quantify : 'tip' }} with the {{ filters.length | quantify : 'filter' }}.</span>
+                <span *ngIf="!filters.length">Currently have {{ ($results | async).length | quantify : 'tip' }} to share.</span>
+            </mat-hint>
+            <button *ngIf="!filters.length" matSuffix mat-icon-button [disabled]="formControl.disabled">
+                <mat-icon>search</mat-icon>
+            </button>
+            <button *ngIf="filters.length" matSuffix mat-icon-button (click)="clearFilters()" [disabled]="formControl.disabled">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div class="output">
+        <p *ngIf="($results | async).length"> Showing {{ $visible | async | quantify : 'result' }} of query. <a *ngIf="($visible | async) < ($results | async).length" href="javascript:void(0)" (click)="showAll()">show all results</a></p>
+        <p *ngIf="!($results | async).length">It appears that we do not have the tip(s) you are looking for. Try searching with other filters.</p>
+        <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+            <ng-container *ngFor="let tip of $results | async; let i = index">
+                <div class="card" *ngIf="i < ($visible | async)" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+                    <mat-card class="mat-elevation-z4">
+                        <mat-card-content>
+                            <p>{{ tip }}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </ng-container>
+        </div>
+        <div class="action" *ngIf="($visible | async) < ($results | async).length">
+            <button mat-stroked-button (click)="showMore()">SHOW MORE</button>
+        </div>
+    </div>
+    <div class="decor"></div>
+</section>
+<!-- SEARCH BAR (Enter in filter to find the tip you need) -->
+<!-- SEARCH RESULT BOX -->
+<!-- NOT EMPTY -->
+<!-- gallery of cards -->
+<!-- tldr section -->
+<!-- option to see more/less -->
+<!-- EMPTY -->
+<!-- It appears that we currently don't have the tip are looking for, but you can help us add that tip by emailing us. -->
+<!-- EMAIL component -->
+<!-- To precaution.inc@gmail.com (readonly) -->
+<!-- Subject [Tip Suggestion / Tip Request] (readonly) -->
+<!-- Tip Suggestion -->
+<!-- What is the TLDR of your tip? -->
+<!-- What is a longer or more detailed description of your tip? -->
+<!-- Tip Request -->
+<!-- What is your question? -->
+<!-- Send Email <a styled like mat-button> -->
+<!-- href is email data piped thru encodedURI -->
+<!-- onClick replaces email interface with a question -->
+<!-- Did you send the email to us? -->
+<!-- Yes => Thank you for reaching out to us! -->
+<!-- No => Bring back email interface -->

@@ -1,0 +1,348 @@
+@import "../../../globals.scss";
+
+:host section.body {
+    $special-border: 1px solid #ffffff2a;
+    background-image: url(../../../assets/simulations/email-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: min-content 1fr 50px;
+    grid-template-rows: min-content 1fr;
+    font-family: "Open Sans", sans-serif;
+    & > div.logo {
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 8px;
+        padding-right: 20px;
+        border-bottom: $special-border;
+        & > a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            & > div { 
+                width: 35px;
+                height: 35px;
+                background-image: url(../../../assets/logo.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+            }
+            & > span {
+                font-family: "Open Sans", sans-serif;
+                font-size: 1.4rem;
+            }
+        }
+    }
+    & > div.head {
+        grid-column: 2 / 4;
+        border-bottom: $special-border;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        padding-left: 0px;
+        & > div.search {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            & > div.input {
+                background-color: #ffffff48;
+                padding: 8px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0px;
+                padding-right: 24px;
+                border-radius: 6px;
+                width: 100%;
+                max-width: 500px;
+                & > span {
+                    font-size: 1rem;
+                }
+                &:hover {
+                    cursor: text;
+                }
+            }
+        }
+        & > div.floats {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+            & > button:last-of-type {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center; 
+                & div.logo {
+                    width: 30px;
+                    height: 30px;
+                    background-image: url(../../../assets/logo.png);
+                    background-color: white;
+                    background-size: 80%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+    & > div.nav {
+        grid-column: 1 / 2;
+        border-right: $special-border;
+        & > div:not(:last-of-type) {
+            border-bottom: $special-border;
+        }
+        & > div.compose {
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            & > div {
+                background-color: white;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+                padding: 10px 15px;
+                color: black;
+                border-radius: 30px;
+                cursor: pointer;
+                & > span {
+                    font-size: 0.875rem;
+                }
+            }
+        }
+        & > div.boxes {
+            padding: 8px;
+            padding-left: 0px;
+            & > div {
+                width: 225px;
+                padding: 6px 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+                box-sizing: border-box;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                cursor: pointer;
+                & > span {
+                    &:last-of-type {
+                        font-size: 0.8rem;
+                    }
+                    &:first-of-type {
+                        flex: 1;
+                        font-size: 0.95rem;
+                    }
+                }
+                &:hover {
+                    background-color: #ffffff2a;
+                }
+            }
+        }
+        & > div.meet {
+            & > h1 {
+                padding: 14px 20px;
+                margin: 0;
+                font-size: 0.9rem;
+            }
+            & > div {
+                width: 225px;
+                padding: 6px 20px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+                box-sizing: border-box;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                cursor: pointer;
+                & > span {
+                    flex: 1;
+                    font-size: 0.95rem;
+                }
+                &:hover {
+                    background-color: #ffffff2a;
+                }
+            }
+        }
+    }
+    & > div.email {
+        grid-column: 2 / 3;
+        background-color: white;
+        padding-bottom: 64px;
+        & > div.floats {
+            background-image: url(../../../assets/simulations/email-background.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            padding: 8px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            & > div.toolbox {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                & > div.group {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    padding: 0px 8px;
+                    &:not(:first-of-type) {
+                        border-left: $special-border;
+                    }
+                }
+            }
+        }
+        & > div.body {
+            color: black;
+            font-size: 1rem;
+            & > div.title {
+                padding: 16px 10px 16px 72px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 4px;
+                & > h1 {
+                    font-weight: normal;
+                    margin: 0;
+                    flex: 1;
+                }
+                & > button {
+                    color: #555;
+                }
+            }
+            & > div.ui {
+                padding: 10px;
+                padding-left: 0px;
+                display: flex;
+                flex-direction: row;
+                & > div.profile {
+                    padding: 0px 16px;
+                    & > div {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 1px solid rgba(128, 128, 128, 0.514);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-color: rgba(128, 128, 128, 0.247);
+                        background-image: url(../../../assets/logo.png);
+                    }
+                }
+                & > div.body {
+                    flex: 1;
+                    & > div.head {
+                        & > div.info {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 8px;
+                            font-size: 0.875rem;
+                            font-weight: bold;
+                        }
+                        & > div.misc {
+                            font-size: 0.75rem;
+                            color: #555;
+                            margin: 0;
+                            height: 1rem;
+                        }
+                    }
+                    & > div.content {
+                        padding-top: 10px;
+                        font-size: 0.875rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        & > p {
+                            margin: 0;
+                        }
+                        & > mat-radio-group {
+                            display: flex;
+                            flex-direction: column;
+                            margin: 6px 0px;
+                            & mat-radio-button {
+                                margin: 6px;
+                                & span.radio-button-span {
+                                    font-family: "Open Sans", sans-serif;
+                                    font-size: 0.875rem;
+                                }
+                            }
+                        }
+                        & > div.action {
+                            margin-top: 24px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: flex-start;
+                            & > button {
+                                font-family: 'Assistant', sans-serif;
+                                font-size: 1.1rem;
+                                padding: 8px;
+                                background-color: transparent;
+                                color: black;
+                                border: 2px solid black;
+                                cursor: pointer;
+                                transition: background-color 0.2s,
+                                            color 0.2s,
+                                            border-color 0.2s;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 4px;
+                                &:disabled {
+                                    background-color: darken(ywdt(light-content), 10%);
+                                    color: lighten(black, 60%);
+                                    border-color: lighten(black, 60%);
+                                    cursor: initial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & > div.widgets {
+        grid-column: 3 / 4;
+        border-left: $special-border;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        justify-content: flex-start;
+        & > button:last-of-type {
+            margin-top: 30px;
+        }
+    }
+}

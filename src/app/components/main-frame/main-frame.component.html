@@ -1,0 +1,60 @@
+<div #wrapper class="mat-toolbar-wrapper">
+    <div *ngIf="!(broadcastHidden$ | async)" class="broadcast">
+        <button mat-icon-button disabled>
+            <mat-icon>cancel</mat-icon>
+        </button>
+        <p>IMPORTANT: Help us bring more to you by voting for us <a href="https://allstarcode.afrogs.org/#/view/258765" target="_blank">here</a>!</p>
+        <button mat-icon-button (click)="closeBroadcast()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+    <mat-toolbar class="mat-elevation-z5">
+        <button mat-icon-button (click)="menu.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <a class="logo" routerLink="/">
+            <div>
+                <!-- LOGO -->
+            </div>
+            <span>Precaution</span>
+        </a>
+        <span class="spacer"></span>
+        <div class="anchor-holder">
+            <ng-content select="app-page-anchor"></ng-content>
+            <app-page-anchor anchor="footer">Social</app-page-anchor>
+        </div>
+    </mat-toolbar>
+</div>
+<mat-sidenav-container autosize [style.margin-top.px]="topGap | async">
+    <mat-sidenav #menu [mode]="mobileQuery.matches ? 'over' : 'side'" fixedInViewport="true" [fixedTopGap]="topGap | async">
+        <!-- TODO -->
+        <app-nav-anchor link="">Home</app-nav-anchor>
+        <app-nav-group >
+            <span>Nigerian Prince</span>
+            <app-nav-anchor link="/{{ PATHS.NIGERIAN_PRINCE }}">Simulation</app-nav-anchor>
+            <app-nav-anchor link="/{{ PATHS.INFO_FILLER }}">Info</app-nav-anchor>
+        </app-nav-group>
+        <app-nav-group>
+            <span>Microsoft</span>
+            <app-nav-anchor link="/{{ PATHS.MICROSOFT }}">Simulation</app-nav-anchor>
+            <app-nav-anchor link="/{{ PATHS.INFO_FILLER }}">Info</app-nav-anchor>
+        </app-nav-group>
+        <app-nav-group>
+            <span>Game Currency</span>
+            <app-nav-anchor link="/{{ PATHS.GAME_CURRENCY }}">Simulation</app-nav-anchor>
+            <app-nav-anchor link="/{{ PATHS.INFO_FILLER }}">Info</app-nav-anchor>
+        </app-nav-group>
+        <app-nav-group>
+            <span>Unexpected Prize</span>
+            <app-nav-anchor link="/{{ PATHS.UNEXPECTED_PRIZE }}">Simulation</app-nav-anchor>
+            <app-nav-anchor link="/{{ PATHS.INFO_FILLER }}">Info</app-nav-anchor>
+        </app-nav-group>
+        <app-nav-anchor link="/{{ PATHS.RESOURCES }}">Resources</app-nav-anchor>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <main>
+            <ng-content></ng-content>
+        </main>
+        <app-footer id="footer"></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

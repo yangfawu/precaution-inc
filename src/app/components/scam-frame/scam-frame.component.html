@@ -1,0 +1,25 @@
+<main>
+    <ng-content></ng-content>
+</main>
+<section #modal class="mat-elevation-z5 start">
+    <div>
+        <p>You are about to enter a simulation which means that everything you are about to see is created merely to demonstrate a real-world scam. Any action done inside this activity won't have any real-life consequences.</p>
+        <p>If you ever need to <b>exit</b> this simulation, you can click on the small arrow button located at the <b>bottom left</b> of this page. Clicking on it will reveal an emergency green button that will take you back to the home page on click.</p>
+        <p>
+            <mat-checkbox (change)="updateStart($event)" [checked]="false" [required]="true">I have read the above statements.</mat-checkbox>
+        </p>
+        <div>
+            <button matRipple matRippleColor="#00000044" (click)="closeModal(modal)" [disabled]="!(enabled$ | async)">Click to Start</button>
+        </div>
+    </div>
+</section>
+<!-- <section class="exit" [class.hidden]="hidden$ | async" [style.--hidden-color]="exitColor"> -->
+<section class="exit" [class.hidden]="hidden$ | async">
+    <button matRipple routerLink="/" [disabled]="hidden$ | async">
+        <span>Exit Simulation</span>
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+    <div matRipple (click)="toggle()" matTooltip="exit">
+        <mat-icon>chevron_left</mat-icon>
+    </div>
+</section>

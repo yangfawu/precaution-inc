@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./globals.scss";
+
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: ywdt(background);
+    color: ywdt(light-content);
+}
+* {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: lighten(ywdt(surface), 10%);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: lighten(ywdt(surface), 30%);
+        &:hover {
+            background-color: lighten(ywdt(surface), 40%);
+        }
+    }
+}

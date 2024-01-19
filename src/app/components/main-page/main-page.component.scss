@@ -1,0 +1,402 @@
+@import "../../../globals.scss";
+
+.gradient-special {
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #239bc0 74%);
+    background-size: 200%;
+    background-position: center;
+    transition: background-position 0.3s;
+    &:hover {
+        background-position: right;
+    }
+}
+:host {
+    section.main-header {
+        --offset: 0px;
+        // #
+        min-height: calc(100vh - var(--offset));
+        padding: 32px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+        & > div.content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 400px;
+            background-color: ywdt(surface);
+            padding: 24px 48px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 22px 4px ywdt(surface);
+            & > * {
+                margin: 0;
+            }
+            & > h1 {
+                font-family: 'Encode Sans SC', sans-serif;
+                font-size: 3rem;
+                font-weight: normal;
+            }
+            & > p {
+                font-family: 'Assistant', sans-serif;
+                font-size: 1.5rem;
+                line-height: 1.75rem;
+            }
+        }
+        & > div.figure {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            & > div {
+                width: 400px;
+                height: 400px;
+                border-radius: 50%;
+                @extend .gradient-special;
+                padding: 10px;
+                box-sizing: border-box;
+                & > div {
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                    background-color: ywdt(background);
+                    background-image: url(../../../assets/home/head-img.gif);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
+        }
+    }
+    section.main-point {
+        $spacing: 16px;
+        // #
+        padding: 16px 32px;
+        display: flex;
+        margin: 32px 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 32px;
+        justify-content: center;
+        & > div.content {
+            max-width: 400px;
+            & > * {
+                margin: 0;
+            }
+            & > h1 {
+                font-weight: normal;
+                font-family: 'Encode Sans SC', sans-serif;
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+            & > p {
+                font-family: 'Assistant', sans-serif;
+                font-size: 1.1rem;
+                line-height: 1.75rem;
+            }
+            & > div {
+                margin-top: 32px;
+                display: flex;
+                flex-flow: row wrap;
+                & > a {
+                    text-decoration: none;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    font-family: 'Assistant', sans-serif;
+                    font-size: 1.1rem;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    background-color: transparent;
+                    color: ywdt(light-content);
+                    border: 2px solid ywdt(light-content);
+                    cursor: pointer;
+                    @extend .gradient-special;
+                    & > span {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        & > div.img {
+            padding: $spacing;
+            padding-top: 0px;
+            padding-left: 0px;
+            position: relative;
+            box-sizing: border-box;
+            z-index: 1;
+            & > div {
+                border-radius: 8px;
+            }
+            & > div:first-of-type {
+                width: 600px;
+                height: 400px;
+                background-color: ywdt(light-content);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                &[data-img=crying] {
+                    background-image: url(../../../assets/gifs/crying.gif);
+                }
+                &[data-img=confused] {
+                    background-image: url(../../../assets/gifs/working.gif);
+                }
+            }
+            & > div:last-of-type {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: -1;
+                width: calc(100% - #{$spacing});
+                height: calc(100% - #{$spacing});
+                @extend .gradient-special;
+            }
+        }
+        &.flipped {
+            flex-direction: row-reverse;
+            & > div.img {
+                padding-right: 0px;
+                padding-left: $spacing;
+                & > div:last-of-type {
+                    right: unset;
+                    left: 0
+                }
+            }
+        }
+    }
+    section.main-simulations {
+        padding: 16px 32px;
+        margin: 32px 0;
+        & > div {
+            background-color: ywdt(surface);
+            padding: 36px 24px;
+            border-radius: 8px;
+            & > h1 {
+                margin: 0;
+                font-family: 'Encode Sans SC', sans-serif;
+                font-size: 2.4rem;
+                font-weight: normal;
+                text-align: center;
+                margin-bottom: 32px;
+            }
+            & > div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                & > div.text {
+                    max-width: 400px;
+                    & > * {
+                        margin: 0;
+                    }
+                    & > h1 {
+                        font-weight: normal;
+                        font-family: 'Encode Sans SC', sans-serif;
+                        font-size: 2rem;
+                        margin-bottom: 8px;
+                    }
+                    & > p {
+                        font-family: 'Assistant', sans-serif;
+                        font-size: 1.1rem;
+                        line-height: 1.75rem;
+                    }
+                    & > div {
+                        margin-top: 32px;
+                        display: flex;
+                        flex-flow: row wrap;
+                        & > a {
+                            text-decoration: none;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 4px;
+                            font-family: 'Assistant', sans-serif;
+                            font-size: 1.1rem;
+                            padding: 8px 12px;
+                            border-radius: 4px;
+                            background-color: transparent;
+                            color: ywdt(light-content);
+                            border: 2px solid ywdt(light-content);
+                            cursor: pointer;
+                            @extend .gradient-special;
+                            & > span {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+                & > div.img {
+                    position: relative;
+                    & > div:last-of-type {
+                        $padding-size: 8px;
+                        $offset: 12px;
+                        // #
+                        background-color: ywdt(background);
+                        position: absolute;
+                        padding: $padding-size;
+                        padding-right: calc(#{$padding-size} + #{$offset});
+                        right: -$offset;
+                        border-radius: 6px;
+                        bottom: 16px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        & > button:hover {
+                            @extend .gradient-special;
+                        }
+                    }
+                    & > div:first-of-type {
+                        width: 600px;
+                        height: 400px;
+                        background-color: ywdt(light-content);
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        border-radius: 8px;
+                        transition: background 0.3s;
+                        &[data-img=nigerian-prince] {
+                            background-image: url(../../../assets/home/nigerian-prince.png);
+                        }
+                        &[data-img=microsoft] {
+                            background-image: url(../../../assets/home/microsoft.png);
+                        }
+                        &[data-img=game-currency] {
+                            background-image: url(../../../assets/home/game-currency.png);
+                        }
+                        &[data-img=unexpected-prize] {
+                            background-image: url(../../../assets/home/unexpected-prize.png);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section.main-spacer {
+        padding: 16px 32px;
+        margin: 32px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        & > div {
+            @extend .gradient-special;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+    }
+    section.main-people {
+        padding: 16px 32px;
+        margin: 32px 0;
+        & > h1 {
+            font-size: 2.4rem;
+            font-weight: normal;
+            font-family: 'Encode Sans SC', sans-serif;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 24px;
+        }
+        & > div {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: stretch;
+            justify-content: center;
+            & > div.person {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 16px;
+                & > div.img {
+                    width: 150px;
+                    height: 150px;
+                    padding: 8px;
+                    border-radius: 50%;
+                    @extend .gradient-special;
+                    & > div {
+                        width: 100%;
+                        height: 100%;
+                        background-color: ywdt(background);
+                        border-radius: 50%;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        @mixin pic($text, $link) {
+                            &[data-src="#{$text}"] {
+                                background-image: #{$link};
+                            }
+                        }
+                        @include pic("houchi", url(../../../assets/home/houchi-pic.gif));
+                        @include pic("jeremy", url(../../../assets/home/jeremy-pic.png));
+                        @include pic("yangfa", url(../../../assets/home/yangfa-pic.gif));
+                    }
+                }
+                & > div.text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    & > * {
+                        margin: 0;
+                    }
+                    & > h1 {
+                        font-weight: normal;
+                        font-family: 'Assistant', sans-serif;
+                        font-size: 1.7rem;
+                    }
+                    & > p {
+                        font-family: 'Assistant', sans-serif;
+                        font-size: 1rem;
+                        font-style: italic;
+                    }
+                    & > a {
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 4px;
+                        font-family: 'Assistant', sans-serif;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        @extend .gradient;
+                    }
+                }
+            }
+            & > div.spacer {
+                width: 0px;
+                border-left: 1px dashed rgba(ywdt(light-content), 0.4);
+                margin: 36px;
+            }
+        }
+        & > div.statement {
+            margin-top: 24px;
+            & > p {
+                font-family: 'Assistant', sans-serif;
+                background-color: ywdt(surface);
+                border-radius: 10px;
+                padding: 16px;
+                &::before {
+                    content: "\" ";
+                }
+                &::after {
+                    content: " \"";
+                }
+            }
+        }
+    }
+}
+*.gradient {
+    @extend .gradient-special;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

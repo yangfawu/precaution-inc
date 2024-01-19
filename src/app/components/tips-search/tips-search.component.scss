@@ -1,0 +1,121 @@
+@import "../../../globals.scss";
+
+:host > section {
+    $back-color: rgba(255, 255, 255, 0.95);
+    // #
+    margin: 0 32px;
+    width: calc(100% - 64px);
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 16px;
+    min-height: 150px;
+    position: relative;
+    z-index: 0;
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: ywdt(light-content);
+        & > div.decor {
+            opacity: 0;
+        }
+        & > div.output {
+            border-color: ywdt(light-content);
+        }
+    }
+    & > div.decor {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: transparent;
+        border-width: 2px;
+        border-color: ywdt(light-content);
+        border-style: solid;
+        z-index: -1;
+        opacity: 1;
+        transition: opacity 0.15s;
+        &:first-of-type {
+            top: -2px;
+            left: -2px;
+            border-bottom: none;
+            border-right: none;
+        }
+        &:last-of-type {
+            bottom: -2px;
+            right: -2px;
+            border-top: none;
+            border-left: none;
+        }
+    }
+    & > div.input, & > div.output {
+        padding: 16px;
+        background-color: ywdt(light-content);
+        color: black;
+    }
+    & > div.input {
+        // padding-top: 32px;
+        & > p {
+            margin: 0;
+            font-family: 'Assistant', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.75rem;
+        }
+        & > mat-form-field {
+            width: 100%;
+            padding-bottom: none;
+            color: black;
+            mat-hint {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1ch;
+            }
+        }
+    }
+    & > div.output {
+        // padding-top: 8px;
+        & > p {
+            margin: 0;
+            font-family: 'Assistant', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.75rem;
+            margin-bottom: 8px;
+            & > a {
+                font-family: 'Encode Sans SC', sans-serif;
+                color: darken(ywdt(dark-blue), 20%);
+                &:hover {
+                    color: darken(ywdt(dark-blue), 40%);
+                }
+                &:active {
+                    color: lighten(ywdt(dark-blue), 10%);
+                }
+            }
+        }
+        & > div.content {
+            div.card {
+                opacity: 1;
+                animation-name: fadeIn;
+                animation-timing-function: ease-out;
+                animation-duration: 0.5s;
+                animation-iteration-count: 1;
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                mat-card {
+                    mat-card-content {
+                        p {
+                            font-family: 'Assistant', sans-serif;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+        & > div.action {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 32px;
+        }
+    }
+}

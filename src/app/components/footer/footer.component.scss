@@ -1,0 +1,181 @@
+@use 'sass:math';
+@import "../../../globals.scss";
+
+:host {
+    & > footer {
+        padding: 32px 64px;
+        background-color: ywdt(surface);
+        padding-bottom: 16px;
+        & > div.divider {
+            border-top: 1px solid ywdt(light-content);
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+        & > section {
+            &:first-of-type {
+                display: flex;
+                flex-direction: row;
+                gap: 16px;
+                align-items: center;
+                justify-content: space-between;
+                & > div {
+                    &:first-of-type {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        & > div {
+                            $size: 40px;
+                            // #
+                            width: $size;
+                            height: $size;
+                            background-image: url(../../../assets/logo.png);
+                            background-size: 100%;
+                            background-repeat: no-repeat;
+                        }
+                        & > span {
+                            font-family: 'Encode Sans SC', sans-serif;
+                            font-size: 1.6rem;
+                        }
+                    }
+                    &:last-of-type > a {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        text-decoration: none;
+                        color: ywdt(light-blue);
+                        &:hover > span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                display: flex;
+                flex-direction: row;
+                gap: 16px;
+                align-items: flex-start;
+                & > div {
+                    flex: 1;
+                    color: ywdt(light-content);
+                    & > h1 {
+                        font-family: 'Encode Sans SC', sans-serif;
+                        font-weight: normal;
+                        margin: 0;
+                        margin-bottom: 8px;
+                    }
+                    &:first-of-type {
+                        flex: 1.5;
+                        & > form {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: stretch;
+                            justify-content: flex-start;
+                            gap: 8px;
+                            & > input {
+                                font-family: 'Assistant', sans-serif;
+                                border: 2px solid ywdt(light-content);
+                                font-size: 1.1rem;
+                                background-color: transparent;
+                                padding: 8px;
+                                width: 100%;
+                                max-width: 40ch;
+                                color: ywdt(light-content);
+                                transition: border-color 0.2s;
+                                text-overflow: ellipsis;
+                                &:focus {
+                                    outline: none;
+                                    border-color: transparent;
+                                    border-bottom-color: ywdt(light-blue);
+                                }
+                                &.invalid {
+                                    border: 2px solid ywdt(error);
+                                    &:focus {
+                                        border-color: transparent;
+                                        border-bottom-color: lighten(ywdt(error), 20%);
+                                    }
+                                }
+                            }
+                            & > button {
+                                font-family: 'Assistant', sans-serif;
+                                font-size: 1.1rem;
+                                padding: 8px;
+                                background-color: transparent;
+                                color: ywdt(light-content);
+                                border: 2px solid ywdt(light-content);
+                                cursor: pointer;
+                                &:disabled {
+                                    background-color: darken(ywdt(light-content), 50%);
+                                }
+                            }
+                        }
+                    }
+                    &:last-of-type > div {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 12px;
+                        & > a {
+                            $size: 45px;
+                            // #
+                            width: $size;
+                            height: $size;
+                            background-color: darken(ywdt(light-content), 60%);
+                            border-radius: 50%;
+                            position: relative;
+                            transition: background-position 0.3s;
+                            &::after {
+                                $img-size: math.sqrt(1.28)/2*100%;
+                                // #
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: $img-size;
+                                height: $img-size;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                filter: brightness(0) invert(1);
+                            }
+                            &[aria-label = "email"]::after {
+                                background-image: url(../../../assets/social-icons/gmail.png);
+                            }
+                            &[aria-label = "twitter"]::after {
+                                background-image: url(../../../assets/social-icons/twitter.png);
+                            }
+                            &[aria-label = "linkedin"]::after {
+                                background-image: url(../../../assets/social-icons/linkedin.png);
+                            }
+                            &[aria-label = "instagram"]::after {
+                                background-image: url(../../../assets/social-icons/instagram.png);
+                            }
+                            &:hover {
+                                background-color: #abe9cd;
+                                background-image: linear-gradient(315deg, #abe9cd 0%, #239bc0 74%);
+                                background-size: 200%;
+                                background-position: center;
+                            }
+                        }
+                    }
+                }
+            }
+            &:last-of-type {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                & > p {
+                    font-family: 'Assistant', sans-serif;
+                    margin: 0;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}

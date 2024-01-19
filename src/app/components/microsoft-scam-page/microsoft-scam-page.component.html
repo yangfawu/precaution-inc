@@ -1,0 +1,65 @@
+<app-scam-frame (start)="showAlert(500)">
+    <section class="body">
+        <h1>your computer is now locked</h1>
+        <h2>1cae1b5</h2>
+        <section>
+            <div>
+                <p>Call Microsoft Technical Support at <span>1</span><span>234</span><span>567</span><span>8901</span></p>
+                <p>Do Not Ignore This Important Warning</p>
+                <p>If you close this page without resolving issue, access to your computer will be disabled to prevent
+                    further damage to our network.</p>
+                <p>Your computer has alerted us that it was infected with virus and spyware. The following data is at risk:
+                </p>
+                <ol>
+                    <li>Facebook Login</li>
+                    <li>Credit Card Information</li>
+                    <li>Email Credentials</li>
+                    <li>Browsing History and Data</li>
+                </ol>
+                <p>You must contact us immediately so our engineers can guide you through the recovery process by phone.
+                    Please call us within the 5 minutes to prevent complete loss of your computer.</p>
+                <p>Contact Microsoft Engineer: <span>1</span><span>234</span><span>567</span><span>8901</span></p>
+            </div>
+            <div>
+                <div><!-- microsoft logo --></div>
+            </div>
+        </section>
+    </section>
+    <section class="alert-modal" [class.hidden]="hidden$ | async">
+        <div class="mat-elevation-z5">
+            <div class="header">
+                <span>Urgent Issue</span>
+                <button mat-icon-button (click)="closeAlert()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <div class="content">
+                <div class="message" *ngIf="tally < threshold">
+                    <p>Call Microsoft Technical Support at <span>1</span><span>234</span><span>567</span><span>8901</span></p>
+                    <p>Do Not Ignore This Important Warning</p>
+                    <p>If you close this page without resolving issue, access to your computer will be disabled to prevent
+                        further damage to our network.</p>
+                    <p>Your computer has alerted us that it was infected with virus and spyware. The following data is at risk:
+                    </p>
+                    <ol>
+                        <li>Facebook Login</li>
+                        <li>Credit Card Information</li>
+                        <li>Email Credentials</li>
+                        <li>Browsing History and Data</li>
+                    </ol>
+                    <p>You must contact us immediately so our engineers can guide you through the recovery process by phone.
+                        Please call us within the 5 minutes to prevent complete loss of your computer.</p>
+                    <p>Contact Microsoft Engineer: <span>1</span><span>234</span><span>567</span><span>8901</span></p>
+                </div>
+                <app-info-box *ngIf="tally >= threshold">
+                    <p>If you ever come across a page like this, you should ignore its threats and exit the page! Its claims about your tech hardware are typically baseless. In fact, the quicker you get out of the scene, the less likely you would find yourself in an unfavorable position.</p>
+                    <p>To leave this simulation, try using the <b>EXIT</b> system that we have provided at the <b>BOTTOM LEFT</b> of the page. You can also use the exit button that we have hacked into the alert box during your session.</p>
+                </app-info-box>
+            </div>
+            <div class="action">
+                <button mat-flat-button color="warn" (click)="closeAlert()">Close</button>
+                <button mat-stroked-button *ngIf="tally >= threshold" routerLink="/">Exit</button>
+            </div>
+        </div>
+    </section>
+</app-scam-frame>

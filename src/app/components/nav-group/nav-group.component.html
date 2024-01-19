@@ -1,0 +1,7 @@
+<div class="title" [class.active]="active | async" (click)="toggle()" [style.--level]="trueLevel">
+    <ng-content select="span"></ng-content>
+    <mat-icon [class.rotated]="opened | async">chevron_right</mat-icon>
+</div>
+<div #wrapper class="content" [class.shown]="opened | async">
+    <ng-content select="app-nav-group,app-nav-anchor"></ng-content>
+</div>

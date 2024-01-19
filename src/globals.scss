@@ -1,0 +1,48 @@
+// globals
+@function ywdt($option) {
+    @if $option == background {
+        @return #121212;
+    } @else if $option == surface {
+        @return #1f1f1f;
+    } @else if $option == bright-content {
+        @return #ffffff;
+    } @else if $option == light-content {
+        @return #e2e2e2;
+    } @else if $option == dark-content {
+        @return #898989;
+    } @else if $option == error {
+        @return #cf6679;
+    } @else if $option == dark-blue {
+        @return #639ad1;
+    } @else if $option == light-blue {
+        @return #39ABE7;
+    } @else {
+        @error "No such option.";
+    }
+    // } @else if $option == word {
+    //     @return color;
+    // }
+}
+
+// classes
+.logo {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    & > div {
+        $size: 30px;
+        // #
+        background-image: url(./assets/logo.png);
+        width: $size;
+        height: $size;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+.fill-space {
+    flex: 1 1 auto;
+}

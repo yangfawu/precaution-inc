@@ -1,0 +1,56 @@
+@import "../../../globals.scss";
+
+:host > app-main-frame {
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+        &:first-of-type {
+            margin: 128px 64px 16px 64px;
+            & > div > p {
+                margin: 0;
+                font-family: 'Exo', sans-serif;
+                font-size: 10rem;
+                line-height: 9rem;
+            }
+        }
+        &:last-of-type {
+            margin: 16px 64px 96px 64px;
+            gap: 32px;
+            & > div {
+                &:first-of-type {
+                    & > h1 {
+                        margin: 0;
+                        font-weight: normal;
+                        font-family: 'Encode Sans SC', sans-serif;
+                        text-align: center;
+                        font-size: 2rem;
+                    }
+                    & > p {
+                        margin: 0;
+                        font-style: italic;
+                        font-weight: thin;
+                        font-size: small;
+                        font-family: 'Assistant', sans-serif;
+                        text-align: center;
+                    }
+                }
+                &:last-of-type > button {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                    font-family: 'Assistant', sans-serif;
+                    font-size: 1.1rem;
+                    padding: 8px;
+                    background-color: transparent;
+                    color: ywdt(light-content);
+                    border: 2px solid ywdt(light-content);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

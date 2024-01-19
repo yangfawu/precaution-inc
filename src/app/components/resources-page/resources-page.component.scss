@@ -1,0 +1,46 @@
+@import "../../../globals.scss";
+
+:host > app-main-frame {
+    $left-space: 64px;
+    section.basic {
+        width: calc(100% - 128px);
+        max-width: 800px;
+        margin: $left-space;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin-bottom: 0.5*$left-space;
+        box-sizing: border-box;
+        & > h1 {
+            font-family: 'Encode Sans SC', sans-serif;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: normal;
+            margin: 0;
+        }
+        & > p {
+            margin: 0;
+            font-family: 'Assistant', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.75rem;
+        }
+    }
+    div.divider {
+        width: calc(100% - 128px);
+        max-width: 800px;
+        background-color: ywdt(light-content);
+        height: 1px;
+        margin: 64px;
+        margin-left: $left-space;
+        margin-right: 0px;
+    }
+    section.dummy {
+        height: 300px;
+        width: 100%;
+        background-color: white;
+    }
+    div.end-spacer {
+        background-color: transparent;
+        height: 64px;
+    }
+}

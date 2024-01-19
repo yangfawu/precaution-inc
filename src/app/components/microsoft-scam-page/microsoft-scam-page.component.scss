@@ -1,0 +1,219 @@
+:host > app-scam-frame {
+    section.body {
+        min-height: calc(100vh - 100px);
+        background-color: #04AEF4;
+        font-family: 'Open Sans', sans-serif;
+        padding: 50px;
+        @media screen and (max-width: 500px) {
+            padding: 0;
+        }
+        color: white;
+        $word-spacing: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        & > h1 {
+            text-transform: uppercase;
+            font-size: 35px;
+            font-weight: bold;
+            margin: 0;
+            @keyframes flash {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-name: flash;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            &::before, &::after {
+                content: "**";
+            }
+            &::before {
+                padding-right: $word-spacing;
+            }
+            &::after {
+                padding-left: $word-spacing;
+            }
+        }
+        & > h2 {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 26px;
+            margin: 0;
+            &::before {
+                content: "Error#";
+                padding-right: $word-spacing;
+            }
+        }
+        & > section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2*$word-spacing;
+            @media screen and (max-width: 800px) {
+                grid-template-columns: 1fr;
+                gap: 4*$word-spacing;
+                margin-bottom: 2*$word-spacing;
+            }
+            & > div {
+                &:first-of-type {
+                    padding-left: 3*$word-spacing;
+                    @media screen and (max-width: 1000px) {
+                        padding-left: 0px;
+                    }
+                    & > *:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+                }
+                & > p {
+                    margin: 0;
+                    font-size: 20px;
+                    &:first-of-type {
+                        span {
+                            &:first-of-type {
+                                &::before {
+                                    content: "+";
+                                }
+                            }
+                            &:not(:first-of-type) {
+                                &::before {
+                                    content: "-";
+                                }
+                            }
+                        }
+                    }
+                    &:last-of-type {
+                        span {
+                            &:first-of-type {
+                                &::before {
+                                    content: "+";
+                                }
+                            }
+                            &:not(:last-of-type) {
+                                &::after {
+                                    content: "-";
+                                }
+                            }
+                            &:last-of-type::after {
+                                content: ' (Toll-free)';
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+                & > ol {
+                    margin: 0;
+                    // padding-left: 20px;
+                    li {
+                        font-size: 20px;
+                    }
+                }
+                &:last-of-type {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    & > div {
+                        width: 250px;
+                        height: 237px;
+                        background-image: url(../../../assets/simulations/microsoft-logo.png);
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+            }
+        }
+        & > *:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    section.alert-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.473);
+        & > div {
+            background-color: white;
+            max-width: 500px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            color: black;
+            font-family: 'Open Sans', sans-serif;
+            margin: 8px;
+            & > div.header {
+                background-color: darken(white, 10%);
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                justify-content: space-between;
+                align-items: center;
+                & > span {
+                    padding: 8px;
+                    font-weight: bold;
+                }
+            }
+            & > div.content {
+                padding: 8px;
+                padding-bottom: 0px;
+                & > div > * {
+                    margin: 0;
+                    font-size: 0.95rem;
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                }
+                & > div.message > p {
+                    &:first-of-type, &:last-of-type {
+                        span {
+                            &:first-of-type {
+                                &::before {
+                                    content: "+";
+                                }
+                            }
+                            &:not(:first-of-type) {
+                                &::before {
+                                    content: "-";
+                                }
+                            }
+                        }
+                    }
+                    &:last-of-type > span:last-of-type::after {
+                        content: ' (Toll-free)';
+                    }
+                }
+                & > div.info {
+                    background-color: #eff5fb;
+                    color: #296fa8;
+                    padding: 8px;
+                    border-radius: 6px;
+                    & > p:first-of-type {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 8px;
+                        
+                    }
+                }
+            }
+            & > div.action {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 8px;
+                padding: 8px;
+            }
+        }
+        &.hidden {
+            display: none;
+        }
+    }
+}

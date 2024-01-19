@@ -1,0 +1,193 @@
+@import "../../../globals.scss";
+
+@mixin img($url) {
+    &[data-src = "#{$url}"] {
+        background-image: url("../../../assets/resources-page/img/#{$url}");
+    }
+}
+:host > section {
+    $band-width: 10px; // cannot exceed 32px
+    // #
+    margin-left: 32px;
+    --img-color: ywdt(background);
+    width: calc(100% - 32px);
+    transition: background-color 0.3s;
+    color: black;
+    box-sizing: border-box;
+    padding-left: $band-width solid var(--img-color);
+    background-color: var(--img-color);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    & > div.backdrop {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        right: 0;
+        gap: 8px;
+        z-index: -1;
+        overflow: hidden;
+        writing-mode: vertical-lr;
+        transform: translate(45%, -50%) rotate(225deg);
+        & > div {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20rem;
+            line-height: 85%;
+            text-transform: uppercase;
+            white-space: nowrap;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: ywdt(background);
+            overflow: hidden;
+            user-select: none;
+        }
+    }
+    & > div.special {
+        width: calc(100% - 4*calc(32px - #{$band-width}));
+        max-width: 800px;
+        padding: 16px calc(32px - #{$band-width});
+        background-color: rgba(ywdt(light-content), 0.9);
+        margin-left: $band-width;
+    }
+    & > div.content {
+        & > div.profile {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-start;
+            gap: 16px;
+            margin-top: 20px;
+            & > div.logo {
+                // logo
+                $size: 75px;
+                // #
+                width: $size !important;
+                height: $size !important;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: background-image 0.3s;
+                // background-color: grey;
+                @include img("nordvpn-logo.png");
+                @include img("mcafee-logo.png");
+                @include img("bitdefender-logo.png");
+                @include img("tunnelbear-logo.png");
+                @include img("expressvpn-logo.png");
+                @include img("tor-logo.png");
+                @include img("linux-logo.png");
+                @include img("ccleaner-logo.png");
+                @include img("ssh-logo.png");
+                @include img("ftp-logo.png");
+                @include img("lastpass-logo.png");
+                @include img("logmein-logo.png");
+                @include img("brave-logo.png");
+            }
+            & > div.content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 4px;
+                & > div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+                    justify-content: flex-start;
+                    gap: 16px;
+                    & > span {
+                        font-family: 'Encode Sans SC', sans-serif;
+                        font-size: 2rem;
+                    }
+                    & > a {
+                        font-family: 'Encode Sans SC', sans-serif;
+                        font-size: 1.4rem;
+                        display: inline-flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 2px;
+                        text-transform: lowercase;
+                        text-decoration: none;
+                        color: darken(ywdt(dark-blue), 20%);
+                        & > mat-icon {
+                            margin-top: 4px;
+                            font-size: 1.4rem;
+                        }
+                        &:hover {
+                            color: darken(ywdt(dark-blue), 40%);
+                            & > span {
+                                text-decoration: underline;
+                            }
+                        }
+                        &:active {
+                            color: lighten(ywdt(dark-blue), 10%);
+                        }
+                    }
+                }
+                & > mat-chip-list {
+                    mat-chip {
+                        background-color: rgb(197, 196, 196);
+                        color: black;
+                        user-select: none;
+                        &.lonely {
+                            display: none;
+                            &:only-of-type {
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > div.info {
+            margin: 20px 0 55.6px;
+            & > p {
+                margin: 0;
+                font-family: 'Assistant', sans-serif;
+                font-size: 1.1rem;
+                line-height: 1.75rem;
+                &::before {
+                    content: 'Wikipedia: ';
+                }
+                & > a {
+                    display: inline-flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 2px;
+                    text-decoration: none;
+                    color: darken(ywdt(dark-blue), 20%);
+                    &:hover {
+                        color: darken(ywdt(dark-blue), 40%);
+                        & > span {
+                            text-decoration: underline;
+                        }
+                    }
+                    & > mat-icon {
+                        margin-top: 5px;
+                        font-size: 1.1rem;
+                    }
+                    &:active {
+                        color: lighten(ywdt(dark-blue), 10%);
+                    }
+                }
+            }
+        }
+        & > div.nav {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+            justify-content: flex-end;
+            & > span {
+                margin-right: 32px;
+            }
+        }
+    }
+    & > div.no-content {
+        font-family: 'Assistant', sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.75rem;
+    }
+}

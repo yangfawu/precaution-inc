@@ -1,0 +1,49 @@
+@import "../../../globals.scss";
+
+:host > div {
+    user-select: none;
+    &.title {
+        --level: 1;
+        $vertical-padding: 12px;
+        // #
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        transition: background-color 0.15s linear,
+                    color 0.15s linear;
+        color: ywdt(light-content);
+        font-size: 1rem;
+        cursor: pointer;
+        gap: 8px;
+        font-family: 'Encode Sans SC', sans-serif;
+        padding: $vertical-padding
+                $vertical-padding
+                $vertical-padding
+                calc(2 * var(--level) * #{$vertical-padding});
+        &:hover {
+            background-color: darken(ywdt(light-content), 70%);
+            color: ywdt(light-blue);
+        }
+        & > mat-icon {
+            transition: transform 0.15s ease-in-out;
+            &.rotated {
+                transform: rotate(90deg);
+            }
+        }
+        &.active {
+            color: ywdt(dark-blue);
+        }
+    }
+    &.content {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-in-out,
+                    opacity 0.2s ease-in-out;
+        &.shown {
+            opacity: 1;
+        }
+    }
+}

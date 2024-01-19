@@ -1,0 +1,35 @@
+@import "../../../globals.scss";
+
+:host > div {
+    user-select: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    transition: background-color 0.15s linear;
+    & > a {
+        --level: 1;
+        $vertical-padding: 12px;
+        // #
+        flex: 1;
+        color: ywdt(light-content);
+        text-decoration: none;
+        font-size: 1rem;
+        padding: $vertical-padding
+                2*$vertical-padding
+                $vertical-padding
+                calc(2 * var(--level) * #{$vertical-padding});
+        transition: color 0.15s linear;
+        font-family: 'Encode Sans SC', sans-serif;
+        &.active {
+            color: ywdt(dark-blue);
+        }
+    }
+    &:hover {
+        background-color: darken(ywdt(light-content), 70%);
+        & > a {
+            color: ywdt(light-blue);
+        }
+    }
+}

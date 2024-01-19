@@ -1,0 +1,76 @@
+<app-scam-frame (start)="init()"><section class="body">
+    <div class="announcement" [class.hidden]="annoucementHidden">
+        <div class="text">
+            <h1>You've made the 5-billionth search!</h1>
+            <p>Congratulation! You may be our next lucky winner!</p>
+            <p>Our last winner was Brad Jenkins from America 🚩 who won a Samsung KU6179 Ultra HD TV on 14.05.2021 with his 5-billionth search.</p>
+            <p>Every time the 5-billionth searched is reached, we proclaim a winner and reset the counter.</p>
+            <p>You may choose one of three hidden prizes below. In addition, you will be entered in our Hall of Fame and receive a winner's certificate.</p>
+            <p>Behind every blue cup is a prize. Click on a prize cup to uncover it.</p>
+            <p>For technical reasons, we are not allowed to keep your invitation open for more than 15 minutes.</p>
+            <p>Choose one of the prizes below and follow the instructions on your screen.</p>
+        </div>
+        <div class="prizes">
+            <div class="prize-card" *ngFor="let i of [].constructor(3)">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-trophy-fill" viewBox="0 0 16 16">
+                        <path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935z"/>
+                    </svg>
+                </div>
+                <div>
+                    <button (click)="openModal()">CHOOSE</button>
+                </div>
+            </div>
+        </div>
+        <div class="winners">
+            <h1>Recent Winners</h1>
+            <div class="box">
+                <div class="winner" *ngFor="let winner of fakeWinners">
+                    <div class="img-holder">
+                        <img [src]="winner.pic" alt="profile img of {{ winner.name }}">
+                    </div>
+                    <div class="profile">
+                        <h1>{{ winner.name }}</h1>
+                        <p>{{ winner.prize }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="survey" [class.hidden]="surveyHidden">
+        <div class="regular" *ngIf="surveyStep < survey.length">
+            <h1>Question {{ surveyStep + 1 }} of {{ survey.length + 1 }}: {{ survey[surveyStep].question }}</h1>
+            <p *ngFor="let answer of survey[surveyStep].answers" (click)="nextQuestion()">{{ answer }}</p>
+        </div>
+        <div class="bank" *ngIf="surveyStep >= survey.length">
+            <h1>Question {{ survey.length + 1 }} of {{ survey.length + 1 }}: What is your banking information?</h1>
+            <p>We need this in order to send you the reward.</p>
+            <div>
+                <input type="number" placeholder="Enter in your bank number..." [formControl]="bankNumberControl">
+                <input type="number" placeholder="Enter in your bank PIN..." [formControl]="bankPINCOntrol">
+            </div>
+            <div>
+                <button (click)="submitSurvey()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" [class.hidden]="modalHidden">
+        <div class="content">
+            <h1>Press here to claim now!</h1>
+            <div class="box">
+                <div class="img-holder">
+                    <div>
+                        <!-- PHONE IMG -->
+                    </div>
+                </div>
+                <div class="text">
+                    <p>Due to limited availability your gift will be reserved for the next hour.</p>
+                    <p>If you do not claim the gift during this time, it will be given to the next happy user.</p>
+                    <div>
+                        <button (click)="launchSurvey()">Claim NOW!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section></app-scam-frame>

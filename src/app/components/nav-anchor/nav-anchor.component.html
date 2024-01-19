@@ -1,0 +1,5 @@
+<div>
+    <a #proxyWrapper="routerLinkActive" [routerLink]="link" [style.--level]="trueLevel" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <ng-content></ng-content>
+    </a>
+</div>

@@ -1,0 +1,38 @@
+<footer class="mat-elevation-z1">
+    <section>
+        <div>
+            <div>
+                <!-- logo -->
+            </div>
+            <span>Precaution</span>
+        </div>
+        <div>
+            <button mat-icon-button (click)="scrollToTop()">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+        </div>
+    </section>
+    <div class="divider"></div>
+    <section>
+        <div>
+            <h1>Get Our Updates</h1>
+            <form action="javascript:void(0)">
+                <input placeholder="Enter in your email" type="email" [formControl]="emailControl" [class.invalid]="(emailControl.value+'').length && emailControl.touched && emailControl.invalid">
+                <button matRipple matRippleColor="#ffffff44" (click)="subscribe()" [disabled]="busy$ | async">Sign Up</button>
+            </form>
+        </div>
+        <div>
+            <h1>Our Socials</h1>
+            <div>
+                <a matRipple matRippleColor="#ffffff44" href="mailto:Precaution.Inc@gmail.com" target="_blank" aria-label="email"></a>
+                <a matRipple matRippleColor="#ffffff44" href="https://twitter.com/IncPrecaution" target="_blank" aria-label="twitter"></a>
+                <a matRipple matRippleColor="#ffffff44" href="https://www.instagram.com/precaution.inc/" target="_blank" aria-label="instagram"></a>
+                <a matRipple matRippleColor="#ffffff44" href="https://www.linkedin.com/in/precaution-inc-93ab00209/" target="_blank" aria-label="linkedin"></a>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+    <section>
+        <p>&copy; Copyright 2021, Precaution. All rights reserved.</p>
+    </section>
+</footer>

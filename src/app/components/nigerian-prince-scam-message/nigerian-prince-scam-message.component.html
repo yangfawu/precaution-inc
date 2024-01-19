@@ -1,0 +1,33 @@
+<div [class.collapsed]="collapsed$ | async" [attr.data-c]="collapsed$ | async">
+    <div class="profile">
+        <div [attr.data-person]="data.sender">
+            <!-- picture -->
+        </div>
+    </div>
+    <div class="body">
+        <div class="head" (click)="toggle()">
+            <div class="info">
+                <span>{{ data.name }}</span>
+                <span class="email">{{ email }}</span>
+                <span class="time">{{ time | timeago: 'live' }}</span>
+                <div>
+                    <mat-icon>star_border</mat-icon>
+                    <mat-icon>reply</mat-icon>
+                    <mat-icon>more_vert</mat-icon>
+                </div>
+            </div>
+            <div *ngIf="collapsed$ | async" class="misc" ellipsis [innerText]="flatText"></div>
+            <div *ngIf="!(collapsed$ | async)" class="misc" ellipsis>to {{ data.target }}</div>
+        </div>
+        <div class="content">
+            <div *ngIf="data.message.length" class="text">
+                <p *ngFor="let text of data.message" [innerText]="text"></p>
+            </div>
+            <div *ngIf="data.info && data.info.length" class="info">
+                <app-info-box>
+                    <p *ngFor="let text of data.info" [innerText]="text"></p>
+                </app-info-box>
+            </div>
+        </div>
+    </div>
+</div>
